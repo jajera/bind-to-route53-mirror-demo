@@ -1,0 +1,159 @@
+<mxfile host="65bd71144e">
+    <diagram id="architecture" name="architecture">
+        <mxGraphModel dx="1234" dy="982" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="560" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title-group" value="" style="group;fontFamily=Helvetica;" parent="1" connectable="0" vertex="1">
+                    <mxGeometry x="40" y="16" width="1000" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="title-text" value="BIND → Route 53 private zone mirror" style="text;html=1;align=left;verticalAlign=top;fontSize=26;fontStyle=1;fontFamily=Helvetica;" parent="title-group" vertex="1">
+                    <mxGeometry width="900" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle-text" value="Cross-account Site-to-Site VPN  ·  Lambda AXFR sync  ·  corp.internal PHZ  |  Icons: AWS Architecture Icons" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontFamily=Helvetica;fontColor=#545B64;" parent="title-group" vertex="1">
+                    <mxGeometry y="34" width="980" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="title-sep" value="" style="line;strokeWidth=2;html=1;strokeColor=#FF9900;fontFamily=Helvetica;" parent="title-group" vertex="1">
+                    <mxGeometry y="58" width="1000" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="acc-onprem" value="bind-demo-onprem · ap-southeast-2 · 10.0.0.0/16" style="fillColor=#f5f5f5;strokeColor=light-dark(#666666,#D4D4D4);rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#333333;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="100" width="400" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="vpc-onprem" value="OnPrem VPC" style="fillColor=light-dark(#8C4FFF0D,#8C4FFF0D);strokeColor=#8C4FFF;fillStyle=auto;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#8C4FFF;fontFamily=Helvetica;container=1;collapsible=0;" parent="acc-onprem" vertex="1">
+                    <mxGeometry x="16" y="32" width="368" height="352" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-bind" value="DNS primary" style="fillColor=#FFF2E8;strokeColor=#ED7100;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#ED7100;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-onprem" vertex="1">
+                    <mxGeometry x="24" y="36" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-bind" value="Amazon EC2&lt;div&gt;&lt;i&gt;BIND corp.internal&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fontFamily=Helvetica;shadow=1;" parent="g-bind" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-vpn-app" value="Customer gateway" style="fillColor=#FFF2E8;strokeColor=#ED7100;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#ED7100;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-onprem" vertex="1">
+                    <mxGeometry x="204" y="36" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-vpn-app" value="Amazon EC2&lt;div&gt;&lt;i&gt;Libreswan + EIP&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fontFamily=Helvetica;shadow=1;" parent="g-vpn-app" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-onprem-test" value="Optional client" style="fillColor=#FFF2E8;strokeColor=#ED7100;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#ED7100;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-onprem" vertex="1">
+                    <mxGeometry x="114" y="190" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-onprem-test" value="Amazon EC2&lt;div&gt;&lt;i&gt;on-prem dig&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fontFamily=Helvetica;shadow=1;" parent="g-onprem-test" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="acc-workload" value="bind-demo-workload · ap-southeast-2 · 10.1.0.0/16" style="fillColor=#f5f5f5;strokeColor=light-dark(#666666,#D4D4D4);rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#333333;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="100" width="560" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="vpc-workload" value="Workload VPC" style="fillColor=light-dark(#8C4FFF0D,#8C4FFF0D);strokeColor=#8C4FFF;fillStyle=auto;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#8C4FFF;fontFamily=Helvetica;container=1;collapsible=0;" parent="acc-workload" vertex="1">
+                    <mxGeometry x="16" y="32" width="528" height="352" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-s2s" value="VPN" style="fillColor=#EDE7F6;strokeColor=#8C4FFF;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#8C4FFF;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="24" y="36" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-s2s" value="Site-to-Site VPN&lt;div&gt;&lt;i&gt;VGW attached&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.site_to_site_vpn;fontFamily=Helvetica;shadow=1;" parent="g-s2s" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-lambda" value="Sync" style="fillColor=#FFF2E8;strokeColor=#ED7100;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#ED7100;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="194" y="36" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-lambda" value="AWS Lambda&lt;div&gt;&lt;i&gt;zone sync&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;fontFamily=Helvetica;shadow=1;" parent="g-lambda" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-nat" value="Egress" style="fillColor=#EDE7F6;strokeColor=#8C4FFF;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#8C4FFF;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="364" y="36" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-nat" value="NAT gateway&lt;div&gt;&lt;i&gt;HTTPS egress&lt;/i&gt;&lt;/div&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.nat_gateway;fontFamily=Helvetica;" parent="g-nat" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-eb" value="Schedule" style="fillColor=#FCE4EC;strokeColor=#E7157B;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#E7157B;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="24" y="190" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-eb" value="Amazon EventBridge&lt;div&gt;&lt;i&gt;rate 15 min&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;fontFamily=Helvetica;shadow=1;" parent="g-eb" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-test" value="Client" style="fillColor=#FFF2E8;strokeColor=#ED7100;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#ED7100;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="194" y="190" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-test" value="Amazon EC2&lt;div&gt;&lt;i&gt;workload dig&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fontFamily=Helvetica;shadow=1;" parent="g-test" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="g-r53" value="DNS mirror" style="fillColor=#EDE7F6;strokeColor=#8C4FFF;rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#8C4FFF;fontFamily=Helvetica;container=1;collapsible=0;shadow=1;strokeWidth=1.5;" parent="vpc-workload" vertex="1">
+                    <mxGeometry x="364" y="190" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="i-r53" value="Amazon Route 53&lt;div&gt;&lt;i&gt;corp.internal PHZ&lt;/i&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.route_53;fontFamily=Helvetica;shadow=1;" parent="g-r53" vertex="1">
+                    <mxGeometry x="46" y="30" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-vpn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1D8102;strokeWidth=2;fontFamily=Helvetica;startArrow=classic;endArrow=classic;" parent="1" source="i-vpn-app" target="i-s2s" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-vpn-l" value="Site-to-Site VPN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#1D8102,#3DDC97);" parent="e-vpn" connectable="0" vertex="1">
+                    <mxGeometry x="-0.05" relative="1" as="geometry">
+                        <mxPoint x="5" y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-axfr" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0073BB;strokeWidth=2;fontFamily=Helvetica;dashed=1;dashPattern=8 8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="i-lambda" target="i-bind" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="680" y="222"/>
+                            <mxPoint x="680" y="160"/>
+                            <mxPoint x="600" y="160"/>
+                            <mxPoint x="600" y="130"/>
+                            <mxPoint x="200" y="130"/>
+                            <mxPoint x="200" y="222"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-axfr-l" value="AXFR TCP/53 (over VPN)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#0073BB,#5DADE2);" parent="e-axfr" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="8" y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-r53-api" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#545B64;strokeWidth=1.5;fontFamily=Helvetica;" parent="1" source="i-lambda" target="i-nat" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-nat-r53" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#545B64;strokeWidth=1.5;fontFamily=Helvetica;" parent="1" source="i-nat" target="i-r53" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-nat-r53-l" value="Route 53 API (HTTPS)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#545B64,#D5DBDB);" parent="e-nat-r53" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-dig" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0073BB;strokeWidth=1.5;fontFamily=Helvetica;" parent="1" source="i-test" target="i-r53" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-dig-l" value="AmazonProvidedDNS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#0073BB,#5DADE2);" parent="e-dig" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-16" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-onprem-dig" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0073BB;strokeWidth=1.5;dashed=1;dashPattern=8 8;fontFamily=Helvetica;" parent="1" source="i-onprem-test" target="i-bind" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="100" y="376"/>
+                            <mxPoint x="100" y="222"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-onprem-dig-l" value="DNS TCP/UDP 53" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#0073BB,#5DADE2);" parent="e-onprem-dig" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="10" y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-eb-lambda" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E7157B;strokeWidth=1.5;fontFamily=Helvetica;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="i-eb" target="i-lambda" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="680" y="376"/>
+                            <mxPoint x="680" y="310"/>
+                            <mxPoint x="760" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-eb-lambda-l" value="invoke" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,#232F3E);fontSize=11;fontFamily=Helvetica;fontColor=light-dark(#E7157B,#FF7AB8);" parent="e-eb-lambda" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-42" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

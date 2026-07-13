@@ -1,0 +1,47 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "python.defaultInterpreterPath": "python3.14",
+
+  "C_Cpp.default.configurationProvider": "platformio.platformio-ide",
+
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "davidanson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+
+  "markdownlint.config": {
+    "MD060": {
+      "style": "any"
+    }
+  },
+
+  "search.exclude": {
+    "**/.git": true,
+    "**/.pio": true,
+    "**/firmware/.pio": true
+  },
+
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.pio/**": true,
+    "**/firmware/.pio/**": true
+  }
+}
