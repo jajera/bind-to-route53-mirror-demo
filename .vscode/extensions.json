@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "platformio.platformio-ide",
+    "davidanson.vscode-markdownlint",
+    "timonwong.shellcheck",
+    "ms-vscode.vscode-json",
+    "editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": [
+    "astro-build.astro-vscode",
+    "unifiedjs.vscode-mdx",
+    "esbenp.prettier-vscode"
+  ]
+}
